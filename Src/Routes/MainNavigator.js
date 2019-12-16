@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 // import {Router, Stack, Scene} from 'react-native-router-flux';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import Landing from '../Screens/Landing/Index';
 import Login from '../Screens/Login/Index';
 import SignUp from '../Screens/SignUp/Index';
 import Home from '../Screens/Home/Index';
 import Profile from '../Screens/Profile/Index';
-
+import Project from '../Screens/Project/index';
 const HomeNavigation = createStackNavigator(
   {
     Landing,
@@ -17,11 +17,12 @@ const HomeNavigation = createStackNavigator(
     Login,
     Home,
     Profile,
+    Project,
   },
   {
     headerMode: 'none',
-    initialRouteName: 'Landing',
-  },
+    initialRouteName: 'Landing'
+  }
 );
 
 export default createAppContainer(HomeNavigation);

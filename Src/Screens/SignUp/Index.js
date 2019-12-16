@@ -1,22 +1,22 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import React, {Component} from 'react';
-import 'react-native-gesture-handler';
-import {TouchableOpacity, Text, View} from 'react-native';
-import {Field, reduxForm} from 'redux-form';
-import {connect} from 'react-redux';
-import {compose} from 'redux';
-import {createNewUser} from '../../Actions/AuthActions';
-import {ErrorUtils} from '../../Utils/AuthUtils';
-import InputText from '../../Component/InputText';
-import {Actions} from 'react-native-router-flux';
+import React, { Component } from "react";
+import "react-native-gesture-handler";
+import { TouchableOpacity, Text, View } from "react-native";
+import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { createNewUser } from "../../Actions/AuthActions";
+import { ErrorUtils } from "../../Utils/AuthUtils";
+import InputText from "../../Component/InputText";
+import { Actions } from "react-native-router-flux";
+import Image from "./Image";
 
-import Style from '../../../Styles';
+import Style from "../../../Styles";
 
 class SignUp extends Component {
-
-  goBack() {
-    Actions.pop();
+  login() {
+    Actions.login();
   }
   createNewUser = async values => {
     try {
@@ -25,7 +25,7 @@ class SignUp extends Component {
         throw response;
       }
     } catch (error) {
-      const newError = new ErrorUtils(error, 'Signup Error');
+      const newError = new ErrorUtils(error, "Signup Error");
       newError.showAlert();
     }
   };
@@ -36,13 +36,13 @@ class SignUp extends Component {
 
   renderTextInput = field => {
     const {
-      meta: {touched, error},
+      meta: { touched, error },
       label,
       secureTextEntry,
       maxLength,
       keyboardType,
       placeholder,
-      input: {onChange, ...restInput},
+      input: { onChange, ...restInput }
     } = field;
     return (
       <View>
@@ -61,10 +61,10 @@ class SignUp extends Component {
   };
 
   render() {
-    const {handleSubmit, createUser} = this.props;
+    const { handleSubmit, createUser } = this.props;
     return (
       <View style={Style.container}>
-        <Text style={Style.textt}> Sign Up </Text>
+        <Image />
         <Field
           style={Style.input}
           name="name"
@@ -92,13 +92,13 @@ class SignUp extends Component {
         />
         <TouchableOpacity
           style={Style.btnEnter}
-          onPress={handleSubmit(this.onSubmit)}>
+          onPress={handleSubmit(this.onSubmit)}
+        >
           <Text style={Style.btnEnterText}>Sign Up</Text>
         </TouchableOpacity>
         <View>
           <Text style={Style.texttt}>Already have an account?</Text>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Login')}>
+          <TouchableOpacity onPress={this.login}>
             <Text style={Style.texttt}> Login </Text>
           </TouchableOpacity>
         </View>
@@ -110,37 +110,37 @@ class SignUp extends Component {
 const validate = values => {
   const errors = {};
   if (!values.name) {
-    errors.name = 'Name is required';
+    errors.name = "Name is required";
   }
   if (!values.email) {
-    errors.email = 'Email is required';
+    errors.email = "Email is required";
   }
   if (!values.username) {
-    errors.username = 'Username is required';
+    errors.username = "Username is required";
   }
   if (!values.password) {
-    errors.password = 'Password is required';
+    errors.password = "Password is required";
   }
   return errors;
 };
 
 mapStateToProps = state => ({
-  createUser: state.authReducer.createUser,
+  createUser: state.authReducer.createUser
 });
 
 mapDispatchToProps = dispatch => ({
-  dispatch,
+  dispatch
 });
 
 export default compose(
   connect(
     mapStateToProps,
-    mapDispatchToProps,
+    mapDispatchToProps
   ),
   reduxForm({
-    form: 'register',
-    validate,
-  }),
+    form: "register",
+    validate
+  })
 )(SignUp);
 
 // _signup = async () => {

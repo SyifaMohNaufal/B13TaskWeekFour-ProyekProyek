@@ -1,5 +1,5 @@
 /* eslint-disable dot-notation */
-const BASE_URL = 'http://192.168.1.12:3014';
+const BASE_URL = 'http://192.168.1.8:3014';
 
 export const api = async (url, method, body = null, headers = {}) => {
   try {

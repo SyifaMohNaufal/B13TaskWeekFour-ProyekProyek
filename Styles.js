@@ -1,13 +1,13 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   containerHome: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#133A30',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-    marginTop: 100,
-    marginBottom: 140,
+    justifyContent: 'center',
+    // marginTop: 100,
+    // marginBottom: 140,
   },
   container: {
     flex: 1,
@@ -44,9 +44,23 @@ const styles = StyleSheet.create({
     marginRight: 15,
     marginLeft: 15,
     marginBottom: 15,
+    marginTop: 10,
     padding: 15,
     width: 300,
     borderRadius: 25,
+  },
+  btnLogout: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#30133a',
+    alignItems: 'center',
+    marginRight: 5,
+    marginLeft: 260,
+    marginBottom: 15,
+    marginTop: 240,
+    padding: 15,
+    height: 20,
+    borderRadius: 10,
   },
   btnLanding: {
     justifyContent: 'center',
@@ -57,8 +71,41 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginBottom: 15,
     padding: 10,
-    width: 180,
-    borderRadius: 10,
+    width: 300,
+    borderRadius: 25,
+  },
+  btnHire: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#30133a',
+    alignItems: 'center',
+    marginRight: 15,
+    marginLeft: 15,
+    marginBottom: 15,
+    marginTop: 10,
+    padding: 15,
+    width: 250,
+  },
+  btnHireYes: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: 'darkgreen',
+    alignItems: 'center',
+    marginHorizontal: 30,
+    marginVertical: 5,
+    padding: 15,
+    width: 250,
+    borderRadius: 50,
+  },
+  btnHireNo: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: 'maroon',
+    alignItems: 'center',
+    marginHorizontal: 30,
+    padding: 15,
+    width: 250,
+    borderRadius: 50,
   },
   btnEnterText: {
     color: '#ffffff',
@@ -67,14 +114,15 @@ const styles = StyleSheet.create({
   },
   btnLandingText: {
     color: '#ffffff',
-    fontWeight: '700',
+    fontWeight: 'bold',
+    fontSize: 20,
   },
   errorText: {
     color: 'red',
     fontSize: 14,
     paddingHorizontal: 16,
     // paddingBottom: 5,
-  },
+  }
 });
 
 export default styles;

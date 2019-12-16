@@ -1,17 +1,21 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from "redux";
 
 const authData = (state = {}, action) => {
   switch (action.type) {
-    case 'AUTH_USER_SUCCESS':
+    case "AUTH_USER_SUCCESS":
       return {
         token: action.token,
-        isLoggedIn: true,
+        isLoggedIn: true
       };
-
-    case 'AUTH_USER_FAIL':
+    case "AUTH_USER_CREATED":
       return {
         token: null,
-        isLoggedIn: false,
+        isLoggedIn: false
+      };
+    case "AUTH_USER_FAIL":
+      return {
+        token: null,
+        isLoggedIn: false
       };
     default:
       return state;
@@ -20,28 +24,28 @@ const authData = (state = {}, action) => {
 
 const createUser = (state = {}, action) => {
   switch (action.type) {
-    case 'CREATE_USER_LOADING':
+    case "CREATE_USER_LOADING":
       return {
         isLoading: true,
         isError: false,
         isSuccess: false,
-        errors: null,
+        errors: null
       };
 
-    case 'CREATE_USER_SUCCESS':
+    case "CREATE_USER_SUCCESS":
       return {
         isLoading: false,
         isError: false,
         isSuccess: true,
-        errors: null,
+        errors: null
       };
 
-    case 'CREATE_USER_FAIL':
+    case "CREATE_USER_FAIL":
       return {
         isLoading: false,
         isError: true,
         isSuccess: false,
-        errors: action.payload,
+        errors: action.payload
       };
 
     default:
@@ -51,28 +55,28 @@ const createUser = (state = {}, action) => {
 
 const loginUser = (state = {}, action) => {
   switch (action.type) {
-    case 'LOGIN_USER_LOADING':
+    case "LOGIN_USER_LOADING":
       return {
         isLoading: true,
         isError: false,
         isSuccess: false,
-        errors: null,
+        errors: null
       };
 
-    case 'LOGIN_USER_SUCCESS':
+    case "LOGIN_USER_SUCCESS":
       return {
         isLoading: false,
         isError: false,
         isSuccess: true,
-        errors: null,
+        errors: null
       };
 
-    case 'LOGIN_USER_FAIL':
+    case "LOGIN_USER_FAIL":
       return {
         isLoading: false,
         isError: true,
         isSuccess: false,
-        errors: action.payload,
+        errors: action.payload
       };
 
     default:
@@ -83,5 +87,5 @@ const loginUser = (state = {}, action) => {
 export default combineReducers({
   createUser,
   loginUser,
-  authData,
+  authData
 });

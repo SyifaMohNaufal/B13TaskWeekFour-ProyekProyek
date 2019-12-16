@@ -10,12 +10,12 @@ import {
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 
-import Routes from './Routes/MainNavigator';
+import Routes from './Routes/Routes';
 
 class Main extends Component<{}> {
   render() {
     const {
-      authData: {isLoggedIn},
+      authData: { isLoggedIn }
     } = this.props;
     return (
       <View style={styles.container}>
